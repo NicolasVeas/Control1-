@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool comprobar(int n){
-	if(n>99){
+bool comprobar(long n){
+	if(n>0){
 		return true;
 	}else{
 		return false;
@@ -19,8 +19,8 @@ bool comprobar(int n){
 	
 }
 
-bool ondulado(int num){
-	int x,y;
+bool ondulado(long num){
+	long x,y;
 	bool ver = false;
 	
 	x= num%10;
@@ -54,19 +54,25 @@ bool ondulado(int num){
 
 int main(){
 	
-    int num;
+    long num;
     bool ver_num=true;
     bool ver_ondulado;
     
     while(ver_num){
-    	printf("\n\n**PARA SALIR INGRESE UN NUMERO NEGATIVO O CERO**\n");
-    	printf("Ingrese un numero positivo con al menos 3 digitos: ");
-    	scanf("%d",&num);
+    	printf("\n\n*** PARA SALIR INGRESE UN NUMERO NEGATIVO O CERO ***\n");
+    	printf("Ingrese un numero positivo... : ");
+    	scanf("%li",&num);
     	ver_num= comprobar(num);
+    	
     	if(ver_num){
-    		ver_ondulado = ondulado(num);
-    		if(ver_ondulado) printf("SI es un numero ondulado");
-    		else printf("NO es un numero ondulado");
+    		if(num>99){
+	    		ver_ondulado = ondulado(num);
+	    		if(ver_ondulado) printf("SI es un numero ondulado");
+	    		else printf("NO es un numero ondulado");
+		}else{
+			printf("--- EL NUMERO DEBE TENER ALMENOS 3 DIGITOS ---\n");
+			ver_num = true;
+		}
     	}
     }
     

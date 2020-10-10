@@ -11,7 +11,7 @@
 #include <stdbool.h>
 
 bool comprobar(int n){
-	if(n>0){
+	if(n>=0){
 		return true;
 	}else{
 		return false;
@@ -23,11 +23,13 @@ bool oblongo(int n){
 	int i;
 	bool verificar=false;
 	
+	if(n==0) return true;
+	else{
 	for(i=0;i<=n;i++){
 		if(i*(i+1)==n){
 			verificar = true;
 		}
-	}
+	}}
 	
 	if(verificar) return true;
 	else return false;
@@ -41,12 +43,12 @@ int main(){
     bool ver_oblongo;
     
     while(ver_num){
-    	printf("\n\n**PARA SALIR INGRESE UN NUMERO NEGATIVO O CERO**\n");
+    	printf("\n\n**PARA SALIR INGRESE UN NUMERO NEGATIVO**\n");
     	printf("Ingres un numero positivo: ");
     	scanf("%d",&num);
     	ver_num= comprobar(num);
     	if(ver_num){
-    		ver_oblongo = semi_oblongo(num);
+    		ver_oblongo = oblongo(num);
     		if(ver_oblongo) printf("SI es un numero oblongo");
     		else printf("NO es un numero oblongo");
     	}
