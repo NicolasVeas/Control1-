@@ -48,6 +48,7 @@ int main(){
 	bool ver_ondulado;
 
 	while(ver_num){
+		printf("*** PARA SALIR INGRESE UN NUMERO NEGATIVO *** \n");
 		printf("Ingrese un numero positivo: ");
 		scanf("%s",&num);
 		ver_num = comprobar(num);
