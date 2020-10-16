@@ -52,8 +52,10 @@ int main(){
     	printf("\n\nPara salir ingrese un numero negativo o cero en 'a' o 'b'**\n");
     	printf("Ingresa numero positivo 'a': ");
     	scanf("%d",&a);
+		if(a==0) break;
     	printf("Ingresa numero positivo 'b': ");
     	scanf("%d",&b);
+		if(b==0) break;
     	ver_num= comprobar(a,b);
     	if(ver_num){
     		ver_amigos = amigos(a,b);

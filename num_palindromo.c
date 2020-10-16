@@ -9,54 +9,55 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <conio.h>
+#include <string.h>
 
-bool comprobar(int n){
-	if(n>=0){
-		return true;
-	}else{
+bool comprobar(char n[]){
+	
+	if(n[0]=='-'){
 		return false;
+	}else
+	{
+		return true;
 	}
+	
 	
 }
 
-bool palindromo(int n){
+bool palindromo(char n[]){
 	
-	int num_invertido=0;
-	int num_copia=n;
-	
-	
-	while(n>0){
-		num_invertido = (num_invertido + n%10)*10;
-		n/=10;
+	bool ver = true;
+	int j = strlen(n)-1;
+	for(int i=0;i<strlen(n) && i<=j;i++){
+		
+		if(n[i]!=n[j]){
+			ver = false;
+		} 
+		else j--;
 	}
 	
-	num_invertido /=10;
+	return ver;
 	
-	if(num_invertido==num_copia){
-		return true;
-	}else{
-		return false;
-	}
 }
 	
 
 int main(){
 	
-    int num;
-    bool ver_num=true;
-    bool ver_palindromo;
-    
-    while(ver_num){
-    	printf("\n\nPara comprobar si un numero es PALINDROMO ingrese un numero positivo,\nsi desea salir ingrese un negativo: ");
-    	scanf("%d",&num);
-    	ver_num= comprobar(num);
-    	if(ver_num){
-    		ver_palindromo = palindromo(num);
-    		if(ver_palindromo) printf("Es palindromo");
-    		else printf("No es palindromo");
-    	}
-    }
-    
+	char num[1000];
+	bool ver_num=true;
+	bool ver_ondulado;
+
+	while(ver_num){
+		printf("Ingrese un numero positivo: ");
+		scanf("%s",&num);
+		ver_num = comprobar(num);
+		if(ver_num){
+			ver_ondulado = palindromo(num);
+			if(ver_ondulado) printf("\nSI es un numero palindromo\n");
+			else printf("\nNO es un numero palindromo\n");
+		}
+	}
+	
     
     return 0;
 }
